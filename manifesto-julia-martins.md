@@ -1,6 +1,7 @@
 > **Como usar:** Abra o Claude Code na raiz do projeto clonado e cole o prompt abaixo seguido do conteúdo deste arquivo.
 
 **Prompt para o Claude Code:**
+
 ```
 Você está implementando o site do cliente Julia Martins (segmento: Adestramento de cães).
 Leia este documento do início ao fim antes de começar. Depois siga passo a passo:
@@ -15,7 +16,7 @@ Leia este documento do início ao fim antes de começar. Depois siga passo a pas
 8. Garanta: Hero com `id="hero-section"`, Footer com `id="footer"`, main com `id="main-content"`
 9. Rode `npm run build` para validar — corrija qualquer erro antes de considerar pronto
 
-Regras absolutas:
+Regras absolutas::
 - NUNCA hardcode cor, fonte ou tamanho — sempre `var(--t-*)` ou classes utilitárias Tailwind
 - `<Image />` do Astro, nunca `<img>` nativo
 - Sem `any` no TypeScript, sem `!important` no CSS
@@ -25,6 +26,7 @@ Regras absolutas:
 ---
 
 # Documento do Projeto — Julia Martins
+
 **Studio:** Astroteca Studio
 **Gerado em:** 02/06/2026
 **Segmento:** Adestramento de cães
@@ -34,22 +36,22 @@ Regras absolutas:
 
 ## Briefing do Cliente
 
-| Campo | Valor |
-|-------|-------|
-| Nome do cliente | Julia Martins |
-| Nome da marca | Natu - Espaço Canino |
-| Segmento | Adestramento de cães |
-| Tipo de negócio | servico |
-| Domínio | https://natuespacocanino.com.br/ |
-| WhatsApp | 5512982668716 |
-| Horários | Segunda-feira a sexta-feira, das 07:30 às 17:00. |
-| Instagram | https://www.instagram.com/natu_espacocanino/ |
-| Objetivo de conversão | Mensagem WhatsApp |
-| Mensagem WhatsApp | Olá! Gostaria de saber mais sobre a Natu e como funciona a avaliação comportamental para novos alunos. |
-| GTM ID | GTM-WNJZBRCD |
-| Schema tipo | LocalBusiness |
-| Google nota | 5 |
-| Google avaliações | 9 |
+| Campo                 | Valor                                                                                                  |
+| --------------------- | ------------------------------------------------------------------------------------------------------ |
+| Nome do cliente       | Julia Martins                                                                                          |
+| Nome da marca         | Natu - Espaço Canino                                                                                   |
+| Segmento              | Adestramento de cães                                                                                   |
+| Tipo de negócio       | servico                                                                                                |
+| Domínio               | https://natuespacocanino.com.br/                                                                       |
+| WhatsApp              | 5512982668716                                                                                          |
+| Horários              | Segunda-feira a sexta-feira, das 07:30 às 17:00.                                                       |
+| Instagram             | https://www.instagram.com/natu_espacocanino/                                                           |
+| Objetivo de conversão | Mensagem WhatsApp                                                                                      |
+| Mensagem WhatsApp     | Olá! Gostaria de saber mais sobre a Natu e como funciona a avaliação comportamental para novos alunos. |
+| GTM ID                | GTM-WNJZBRCD                                                                                           |
+| Schema tipo           | LocalBusiness                                                                                          |
+| Google nota           | 5                                                                                                      |
+| Google avaliações     | 9                                                                                                      |
 
 ### FAQ
 
@@ -88,13 +90,12 @@ _Copy não preenchido — Claude Code deve criar com base no briefing._
 
 _Copy não preenchido — Claude Code deve criar com base no briefing._
 
-
-
 ---
 
 ## Direção de Arte
 
 ### Tema Padrão
+
 **Claro**
 
 ### Cores — `src/styles/tokens.css`
@@ -103,38 +104,36 @@ Preencha **apenas os valores** (os nomes são fixos entre projetos):
 
 ```css
 :root {
-  --t-primary:      #285224;
+  --t-primary: #285224;
   --t-primary-dark: #1f411c;
-  --t-secondary:    #f47a1f;
-  --t-background:   #fdfbf7;
-  --t-surface:      #ffffff;
-  --t-surface-alt:  #f8f8f8;
-  --t-dark:         #1a1a1a;
-  --t-text-main:    #222222;
-  --t-text-soft:    #555555;
-  --t-text-muted:   #888888;
-  --t-border:       #e6e6e6;
+  --t-secondary: #f47a1f;
+  --t-background: #fdfbf7;
+  --t-surface: #ffffff;
+  --t-surface-alt: #f8f8f8;
+  --t-dark: #1a1a1a;
+  --t-text-main: #222222;
+  --t-text-soft: #555555;
+  --t-text-muted: #888888;
+  --t-border: #e6e6e6;
 }
 
 .dark {
-  --t-background:  #15130f;
-  --t-surface:     #26231c;
+  --t-background: #15130f;
+  --t-surface: #26231c;
   --t-surface-alt: #383329;
-  --t-text-main:   #e6e6e6;
-  --t-text-soft:   #b3b3b3;
-  --t-text-muted:  #737373;
-  --t-border:      #333333;
+  --t-text-main: #e6e6e6;
+  --t-text-soft: #b3b3b3;
+  --t-text-muted: #737373;
+  --t-border: #333333;
 }
 ```
 
 ### Tipografia
 
-| Papel | Fonte |
-|-------|-------|
-| Heading (`font-serif`) | Gliker |
-| Body (`font-sans`) | Poppins |
-
-
+| Papel                  | Fonte   |
+| ---------------------- | ------- |
+| Heading (`font-serif`) | Gliker  |
+| Body (`font-sans`)     | Poppins |
 
 **Referências visuais:** https://natuespacocanino.com.br/
 
@@ -151,6 +150,7 @@ Preencha **apenas os valores** (os nomes são fixos entre projetos):
 **Foco:** Transformação antes/depois. O visitante deve sentir que o problema dele tem solução aqui.
 
 **Copy que funciona:**
+
 - Hero: atacar a dor principal no título. Subheadline com o resultado esperado.
 - CTA: verbos de ação imediata — "Agende agora", "Fale comigo hoje", "Quero resolver isso".
 - Sobre: credenciais rapidamente, depois voltar ao cliente — não fazer monólogo sobre si.
