@@ -1,0 +1,138 @@
+---
+import { Image } from "astro:assets";
+import imgAreaSoltura01 from "../../assets/images/img_area_soltura_01.webp";
+import imgAreaSoltura02 from "../../assets/images/img_area_soltura_02.webp";
+import imgAreaSoltura03 from "../../assets/images/img_area_soltura_03.webp";
+import imgCaixaTransporte from "../../assets/images/img_caixa_de_transporte.webp";
+import imgCaixas from "../../assets/images/img_caixas.webp";
+import imgCanil from "../../assets/images/img_canil.webp";
+import imgCanisechados from "../../assets/images/img_canis_fechados_e_abertos.webp";
+import imgLago from "../../assets/images/img_lago.webp";
+import imgObstaculos from "../../assets/images/img_obstaculos.webp";
+import imgOndeDormir from "../../assets/images/img_onde_dormir.webp";
+import imgVaranda from "../../assets/images/img_varanda.webp";
+import Carousel from "../global/Carousel.astro";
+
+const slides = [
+  {
+    title: "Gramado amplo com obstáculos",
+    caption:
+      "Liberdade com propósito. Amplo espaço verde para gasto de energia física e socialização em grupo, sempre sob supervisão técnica.",
+    img: imgObstaculos,
+    alt: "Gramado amplo com obstáculos de agility",
+  },
+  {
+    title: "Espaço individual de descanso",
+    caption:
+      "Alojamentos individuais protegidos e frescos, permitindo que seu cão fique tranquilo em seu próprio espaço seguro.",
+    img: imgCanil,
+    alt: "Canil com alojamentos individuais",
+  },
+  {
+    title: "Varanda coberta e fresca",
+    caption:
+      "Conforto e frescor. Área protegida para pausas estratégicas durante o dia, garantindo que o cão não sofra com o calor ou excesso de estímulo.",
+    img: imgVaranda,
+    alt: "Varanda coberta e fresca para os cães",
+  },
+  {
+    title: "Caixas de descanso organizadas",
+    caption:
+      "Descanso estruturado. Onde a ciência do comportamento acontece. Ensinamos o cão a relaxar em um ambiente seguro.",
+    img: imgCaixas,
+    alt: "Caixas de descanso individuais organizadas",
+  },
+  {
+    title: "Ambiente natural com lago",
+    caption:
+      "Estímulo sensorial. Contato direto com a natureza que promove calma e satisfação instintiva para o cão.",
+    img: imgLago,
+    alt: "Ambiente natural com lago",
+  },
+  {
+    title: "Área de soltura 1",
+    caption:
+      "Espaço amplo e seguro para que os cães possam correr, brincar e gastar energia sob supervisão.",
+    img: imgAreaSoltura01,
+    alt: "Área de soltura 1",
+  },
+  {
+    title: "Área de soltura 2",
+    caption:
+      "Ambiente enriquecido com estímulos naturais para socialização e desenvolvimento comportamental.",
+    img: imgAreaSoltura02,
+    alt: "Área de soltura 2",
+  },
+  {
+    title: "Área de soltura 3",
+    caption: "Zona de interação e brincadeira supervisionada, promovendo bem-estar integral.",
+    img: imgAreaSoltura03,
+    alt: "Área de soltura 3",
+  },
+  {
+    title: "Canis fechados e abertos",
+    caption:
+      "Estrutura versátil para diferentes necessidades, com segurança e proteção quando necessário.",
+    img: imgCanisechados,
+    alt: "Canis fechados e abertos",
+  },
+  {
+    title: "Caixa de transporte",
+    caption: "Espaço de habitualização seguro onde o cão aprende a relaxar durante deslocamentos.",
+    img: imgCaixaTransporte,
+    alt: "Caixa de transporte",
+  },
+  {
+    title: "Onde dormir",
+    caption:
+      "Áreas de descanso confortáveis e individualizadas, garantindo sono reparador para cada cão.",
+    img: imgOndeDormir,
+    alt: "Onde dormir",
+  },
+];
+---
+
+<section id="Infraestrutura" class="bg-background section-py">
+  <div class="container-wide">
+    <div class="mb-12 text-center" data-animate>
+      <span class="label-tag justify-center">Nossa estrutura</span>
+      <h2 class="section-heading mt-4">Um refúgio planejado para o bem-estar canino</h2>
+    </div>
+
+    <div class="section-shell px-4 py-5 sm:px-5 sm:py-6 lg:px-8 lg:py-8" data-animate>
+      <Carousel
+        id="infra"
+        slidesPerView={4}
+        slidesPerViewTablet={2.2}
+        slidesPerViewMobile={1.2}
+        spaceBetween={24}
+        loop
+        autoplayDelay={5000}
+      >
+        {slides.map((slide) => (
+          <div class="swiper-slide">
+            <article class="premium-panel card-hover flex h-full min-h-[420px] md:min-h-[470px] flex-col p-4 lg:p-5">
+              <div class="image-frame rounded-[22px]">
+                <Image
+                  src={slide.img}
+                  alt={slide.alt}
+                  class="aspect-[4/3] w-full object-cover"
+                  width={400}
+                  height={300}
+                />
+              </div>
+              <div class="flex flex-1 flex-col px-2 pb-2 pt-5">
+                <h3 class="text-center font-serif text-h-mini font-bold text-text-dark">
+                  {slide.title}
+                </h3>
+                <p class="mt-3 text-center font-sans text-body-base text-text-soft">
+                  {slide.caption}
+                </p>
+              </div>
+            </article>
+          </div>
+        ))}
+      </Carousel>
+    </div>
+  </div>
+</section>

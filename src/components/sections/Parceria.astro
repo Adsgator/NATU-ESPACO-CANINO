@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets";
+import imgParceriaFormulaNatural from "../../assets/images/img_parceria_formula_natural.webp";
+import logoFormulaNatural from "../../assets/images/logo_formula_natural.webp";
+---
+
+<section id="parceria" class="bg-background section-py pt-0">
+  <div class="container-wide">
+    <div class="section-shell" data-animate>
+      <div class="mb-10 text-center">
+        <span class="label-tag justify-center">Parceria</span>
+        <h2 class="section-heading mt-4">Formula Natural</h2>
+        <p class="section-copy mx-auto mt-4">
+          Acreditamos que a nutrição é parte essencial do bem-estar canino. Por isso,
+          contamos com a parceria da Formula Natural, marca de confiança que compartilha nossos
+          valores de qualidade e cuidado com os cães.
+        </p>
+      </div>
+
+      <div class="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+        <div class="image-frame rounded-[30px]">
+          <Image
+            src={imgParceriaFormulaNatural}
+            alt="Parceria Formula Natural"
+            class="h-full w-full object-cover"
+            width={500}
+            height={540}
+          />
+        </div>
+
+        <div class="flex flex-col gap-5">
+          <div class="premium-panel p-5 sm:p-6 lg:p-7">
+            <h3 class="mb-3 font-serif text-h-card font-bold text-text-dark">
+              Nutrição de qualidade
+            </h3>
+            <p class="font-sans text-body-base text-text-soft">
+              Formula Natural oferece rações desenvolvidas com ingredientes premium e
+              formulações que respeitam as necessidades nutricionais específicas de cada
+              cão. Uma parceria natural para manter a saúde e energia dos nossos alunos.
+            </p>
+          </div>
+
+          <div class="premium-panel-dark surface-card-dark p-5 sm:p-6 lg:p-7">
+            <p class="font-sans text-body-base text-white/82">
+              Os cães da Natu recebem alimentação de qualidade, reforçando nosso
+              compromisso com o bem-estar integral.
+            </p>
+          </div>
+
+          <div class="premium-panel flex flex-col items-center gap-4 p-5 text-center sm:flex-row sm:items-center sm:gap-5 sm:text-left">
+            <div class="flex h-24 w-24 flex-shrink-0 items-center justify-center">
+              <Image
+                src={logoFormulaNatural}
+                alt="Logo Formula Natural"
+                class="h-20 w-20 object-contain"
+                width={96}
+                height={96}
+              />
+            </div>
+            <p class="font-sans text-sm text-text-soft">
+              Marca parceira que compartilha nossos valores de qualidade e cuidado com os cães.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

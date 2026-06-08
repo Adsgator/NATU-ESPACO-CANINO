@@ -1,0 +1,356 @@
+---
+import { Icon } from "astro-icon/components";
+import locImg1 from "../../assets/images/loc_img_1.webp";
+import locImg2 from "../../assets/images/loc_img_2.webp";
+import locImg3 from "../../assets/images/loc_img_3.webp";
+import locImg4 from "../../assets/images/loc_img_4.webp";
+import locImg5 from "../../assets/images/loc_img_5.webp";
+import locImg6 from "../../assets/images/loc_img_6.webp";
+import locImg11 from "../../assets/images/loc_img_11.webp";
+import locImg12 from "../../assets/images/loc_img_12.webp";
+import locImg13 from "../../assets/images/loc_img_13.webp";
+import locImg14 from "../../assets/images/loc_img_14.webp";
+
+const MAPS_LINK = "https://maps.app.goo.gl/xkK6Rcj9qC5DPzqDA";
+const MAP_EMBED =
+  "https://maps.google.com/maps?q=-22.52796835364042%2C%20-45.51849102883541&t=m&z=17&output=embed";
+
+const locationImages = [
+  { src: locImg1, alt: "Entrada da Natu com vista da propriedade" },
+  { src: locImg2, alt: "Gramado amplo da estrutura da Natu" },
+  { src: locImg3, alt: "Cão no gramado da Natu" },
+  { src: locImg4, alt: "Cão em área externa da Natu" },
+  { src: locImg5, alt: "Grupo de cães socializando na Natu" },
+  { src: locImg6, alt: "Espaço externo da Natu com vista natural" },
+  { src: locImg11, alt: "Área aberta da estrutura da Natu" },
+  { src: locImg12, alt: "Ambiente externo da Natu com gramado" },
+  { src: locImg13, alt: "Cães em convivência na estrutura da Natu" },
+  { src: locImg14, alt: "Paisagem da propriedade da Natu" },
+];
+
+const locationImageData = locationImages.map((photo) => ({
+  src: photo.src.src,
+  alt: photo.alt,
+}));
+---
+
+<section id="localizacao" class="section-band bg-background section-py pt-0">
+  <div class="container-wide">
+    <div class="mx-auto mb-12 max-w-3xl text-center" data-animate>
+      <span class="label-tag justify-center">Onde estamos</span>
+      <h2 class="section-heading mt-4">Estamos em Piranguçu - MG</h2>
+    </div>
+
+    <div class="section-shell overflow-hidden p-4 sm:p-6 lg:p-8" data-animate>
+      <div class="grid items-center gap-8 lg:grid-cols-[1.02fr_0.98fr]">
+        <div
+          class="relative min-h-[480px] sm:min-h-[540px] lg:min-h-[620px]"
+          data-location-gallery
+          data-location-images={JSON.stringify(locationImageData)}
+        >
+          <div class="location-photo location-photo--main image-frame rounded-[34px]">
+            <div
+              class="location-media"
+              data-location-target="main"
+              data-active-layer="a"
+              role="img"
+              aria-label="Entrada da Natu com vista da propriedade"
+            >
+              <div
+                class="location-media-layer is-visible"
+                data-location-layer="a"
+                style={`background-image: url('${locImg1.src}');`}
+              ></div>
+              <div class="location-media-layer" data-location-layer="b"></div>
+            </div>
+          </div>
+
+          <div class="location-photo location-photo--bottom image-frame rounded-[28px]">
+            <div
+              class="location-media"
+              data-location-target="bottom"
+              data-active-layer="a"
+              role="img"
+              aria-label="Gramado amplo da estrutura da Natu"
+            >
+              <div
+                class="location-media-layer is-visible"
+                data-location-layer="a"
+                style={`background-image: url('${locImg2.src}');`}
+              ></div>
+              <div class="location-media-layer" data-location-layer="b"></div>
+            </div>
+          </div>
+
+          <div class="location-strip">
+            <div class="image-frame rounded-[24px]">
+              <div
+                class="location-media"
+                data-location-target="strip-a"
+                data-active-layer="a"
+                role="img"
+                aria-label="Cão no gramado da Natu"
+              >
+                <div
+                  class="location-media-layer is-visible"
+                  data-location-layer="a"
+                  style={`background-image: url('${locImg3.src}');`}
+                ></div>
+                <div class="location-media-layer" data-location-layer="b"></div>
+              </div>
+            </div>
+
+            <div class="image-frame rounded-[24px]">
+              <div
+                class="location-media"
+                data-location-target="strip-b"
+                data-active-layer="a"
+                role="img"
+                aria-label="Cão em área externa da Natu"
+              >
+                <div
+                  class="location-media-layer is-visible"
+                  data-location-layer="a"
+                  style={`background-image: url('${locImg4.src}');`}
+                ></div>
+                <div class="location-media-layer" data-location-layer="b"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="premium-panel-dark surface-card-dark landscape-shell rounded-[28px] p-5 text-white sm:p-6 lg:rounded-[34px] lg:p-10">
+          <div class="relative z-10">
+            <div class="mb-7 space-y-4">
+              <div class="flex items-start gap-3 rounded-[18px] border border-white/10 bg-white/5 px-4 py-4">
+                <Icon name="lucide:map-pin" class="mt-1 h-[18px] w-[18px] flex-shrink-0 text-complement" />
+                <span class="font-sans text-body-base text-white/82">
+                  Estrada dos Antunes, km 2<br />
+                  Taquaral, Piranguçu - MG, 37511-000
+                </span>
+              </div>
+
+              <div class="flex items-start gap-3 rounded-[18px] border border-white/10 bg-white/5 px-4 py-4">
+                <Icon name="lucide:clock" class="mt-1 h-[18px] w-[18px] flex-shrink-0 text-complement" />
+                <span class="font-sans text-body-base text-white/82">
+                  De segunda a sexta-feira, das 7h30 às 17h.
+                </span>
+              </div>
+            </div>
+
+            <div class="image-frame aspect-video overflow-hidden rounded-[24px] border-white/12 bg-white/6">
+              <iframe
+                src={MAP_EMBED}
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Localização da Natu Espaço Canino no Google Maps"
+                class="h-full w-full"
+              ></iframe>
+            </div>
+
+            <a
+              href={MAPS_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-secondary-gold mt-6 w-full justify-center sm:w-auto"
+            >
+              <Icon name="lucide:map" class="h-5 w-5" />
+              Ver no Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .location-media {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .location-media-layer {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: scale(1.025);
+    transition:
+      opacity 1.4s ease,
+      transform 3.2s ease;
+  }
+
+  .location-media-layer.is-visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .location-photo {
+    position: absolute;
+    overflow: hidden;
+  }
+
+  .location-photo--main {
+    inset: 0 3.5rem 6.8rem 0;
+    z-index: 1;
+  }
+
+  .location-photo--bottom {
+    right: 1.7rem;
+    bottom: 1.7rem;
+    z-index: 2;
+    height: 12.5rem;
+    width: clamp(12rem, 24vw, 17rem);
+  }
+
+  .location-strip {
+    position: absolute;
+    inset: auto 10.25rem 0 1.2rem;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .location-strip > div {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  @media (max-width: 1023px) {
+    .location-photo--main {
+      inset: 0 0 8.25rem 0;
+    }
+
+    .location-photo--bottom {
+      right: 1rem;
+      bottom: 5.75rem;
+      height: 9rem;
+      width: 8.5rem;
+    }
+
+    .location-strip {
+      inset: auto 0 0 0;
+    }
+  }
+
+  @media (max-width: 767px) {
+    [data-location-gallery] {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.875rem;
+      min-height: auto;
+    }
+
+    .location-photo {
+      position: relative;
+    }
+
+    .location-photo--main,
+    .location-photo--bottom {
+      inset: auto;
+      height: auto;
+      width: auto;
+    }
+
+    .location-photo--main {
+      grid-column: 1 / -1;
+      aspect-ratio: 16 / 11;
+    }
+
+    .location-photo--bottom {
+      grid-column: 1 / 2;
+      aspect-ratio: 1 / 1;
+      right: auto;
+      bottom: auto;
+    }
+
+    .location-strip {
+      position: relative;
+      inset: auto;
+      grid-column: 2 / 3;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.875rem;
+    }
+
+    .location-strip > div {
+      aspect-ratio: 4 / 3;
+    }
+  }
+</style>
+
+<script is:inline>
+  const LOCATION_SLOT_ORDER = ["main", "bottom", "strip-a", "strip-b"];
+
+  function initLocationGallery() {
+    const galleries = document.querySelectorAll("[data-location-gallery]");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    galleries.forEach((gallery) => {
+      if (gallery.dataset.galleryInit === "true") return;
+      gallery.dataset.galleryInit = "true";
+
+      const images = JSON.parse(gallery.getAttribute("data-location-images") || "[]");
+      const photoCount = images.length;
+
+      let currentIndex = 0;
+
+      const applyState = (animate = true) => {
+        LOCATION_SLOT_ORDER.forEach((slot, offset) => {
+          const photoIndex = (currentIndex + offset) % photoCount;
+          const target = gallery.querySelector(`[data-location-target="${slot}"]`);
+          const photo = images[photoIndex];
+
+          if (target instanceof HTMLElement && photo) {
+            target.setAttribute("aria-label", photo.alt);
+
+            const activeLayerName = target.dataset.activeLayer === "b" ? "b" : "a";
+            const nextLayerName = activeLayerName === "a" ? "b" : "a";
+            const activeLayer = target.querySelector(`[data-location-layer="${activeLayerName}"]`);
+            const nextLayer = target.querySelector(`[data-location-layer="${nextLayerName}"]`);
+
+            if (!(activeLayer instanceof HTMLElement) || !(nextLayer instanceof HTMLElement)) {
+              return;
+            }
+
+            if (!animate) {
+              activeLayer.style.backgroundImage = `url("${photo.src}")`;
+              activeLayer.classList.add("is-visible");
+              nextLayer.classList.remove("is-visible");
+              nextLayer.style.backgroundImage = "";
+              return;
+            }
+
+            nextLayer.style.backgroundImage = `url("${photo.src}")`;
+            nextLayer.classList.add("is-visible");
+            activeLayer.classList.remove("is-visible");
+            target.dataset.activeLayer = nextLayerName;
+          }
+        });
+      };
+
+      applyState(false);
+
+      if (reduceMotion || photoCount === 0) return;
+
+      window.setInterval(() => {
+        currentIndex = (currentIndex + 1) % photoCount;
+        applyState();
+      }, 3200);
+    });
+  }
+
+  initLocationGallery();
+  document.addEventListener("astro:after-swap", initLocationGallery);
+</script>

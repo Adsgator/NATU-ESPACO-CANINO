@@ -1,0 +1,92 @@
+/*
+  tokens.css - unico arquivo que muda entre projetos
+
+  Define os valores dos tokens como CSS custom properties com o
+  prefixo --t-. O @theme do global.css mapeia estes valores para
+  utilitarios do Tailwind.
+*/
+
+:root {
+  /* Marca */
+  --t-primary: #1e432c;
+  --t-primary-dark: #122819;
+  --t-secondary: #f47a20;
+  --t-secondary-hover: #ff8f3a;
+  --t-complement: #d6dfc4;
+  --t-accent-gold: #f47a20;
+  --t-accent-gold-hover: #ff8f3a;
+  --t-accent-gold-border: #db6d17;
+  --t-accent-gold-border-hover: #ea8540;
+
+  /* Superficies */
+  --t-background: #f8f6f0;
+  --t-background-strong: #f0eadf;
+  --t-surface: #fffdf8;
+  --t-surface-alt: #edf1e6;
+  --t-dark: #10180f;
+  --t-border: #ddd5c9;
+  --t-border-soft: rgba(30, 67, 44, 0.12);
+  --t-overlay-mist: rgba(248, 246, 240, 0.84);
+
+  /* Texto */
+  --t-text-main: #1d231d;
+  --t-text-soft: #5a6458;
+  --t-text-muted: #81897c;
+  --t-text-dark: #1e432c;
+  --t-text-gray: #5a6458;
+
+  /* Utilitarias */
+  --t-wa: #25d366;
+  --t-avatar-primary: #1e432c;
+  --t-avatar-secondary: #f47a20;
+  --t-avatar-tertiary: #d6dfc4;
+  --t-avatar-quaternary: #edf1e6;
+
+  /* Tipografia */
+  --t-font-serif: "Gliker", Georgia, ui-serif, serif;
+  --t-font-sans: "Poppins", "Montserrat", ui-sans-serif, system-ui, sans-serif;
+
+  /* Tamanhos de fonte */
+  --t-text-h1: 2rem;
+  --t-text-h2: 1.8rem;
+  --t-text-h3: 1rem;
+  --t-text-body: 1rem;
+  --t-text-sm: 0.9rem;
+  --t-text-xs: 0.85rem;
+
+  /* Line heights */
+  --t-leading-h1: 2.2rem;
+  --t-leading-h3: 1.2rem;
+  --t-leading-body: 1.4rem;
+
+  /* Letter spacing */
+  --t-tracking-wide: 0.04rem;
+  --t-tracking-normal: 0.02rem;
+
+  /* Container */
+  --t-container-max: 1300px;
+}
+
+.dark {
+  --t-background: #141711;
+  --t-background-strong: #1a1d16;
+  --t-surface: #20241d;
+  --t-surface-alt: #2c3127;
+  --t-dark: #0f0d0a;
+  --t-border: #394032;
+  --t-border-soft: rgba(214, 223, 196, 0.12);
+  --t-overlay-mist: rgba(20, 23, 17, 0.72);
+  --t-text-main: #e6e6e6;
+  --t-text-soft: #bcc4b6;
+  --t-text-muted: #8a9185;
+  --t-secondary: #f47a20;
+  --t-secondary-hover: #ff8f3a;
+  --t-accent-gold: #f47a20;
+  --t-accent-gold-hover: #ff8f3a;
+  --t-accent-gold-border: #db6d17;
+  --t-accent-gold-border-hover: #ea8540;
+  --t-avatar-primary: #d6dfc4;
+  --t-avatar-secondary: #f47a20;
+  --t-avatar-tertiary: #394032;
+  --t-avatar-quaternary: #20241d;
+}

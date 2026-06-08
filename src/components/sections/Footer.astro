@@ -1,0 +1,129 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import natuLogo from "../../assets/images/natu_1.webp";
+
+const WA_NUMBER = import.meta.env.PUBLIC_WA_NUMBER || "5512982668716";
+const WA_MESSAGE =
+  import.meta.env.PUBLIC_WA_MESSAGE ||
+  "Olá! Gostaria de saber mais sobre a Natu e como funciona a avaliação comportamental para novos alunos.";
+const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_MESSAGE)}`;
+const INSTAGRAM_LINK = "https://www.instagram.com/natu_espacocanino/";
+const MAPS_LINK = "https://maps.app.goo.gl/xkK6Rcj9qC5DPzqDA";
+---
+
+<footer
+  id="footer"
+  class="surface-section-dark landscape-shell overflow-hidden pt-10 pb-6 text-white sm:pt-12 lg:pt-14 lg:pb-8"
+>
+  <div class="container-wide">
+    <div class="premium-panel-dark rounded-[28px] p-6 backdrop-blur-[14px] sm:p-8 lg:rounded-[34px] lg:p-10">
+      <div class="grid gap-8 md:grid-cols-3 lg:gap-10">
+        <div class="flex h-full flex-col">
+          <Image
+            src={natuLogo}
+            alt="Natu - Espaço Canino"
+            class="mb-5 h-auto w-[11rem] max-w-[62%] sm:-ml-2 sm:w-[62%]"
+            width={320}
+            height={120}
+          />
+          <p class="max-w-sm font-montserrat text-body-base font-medium text-white/72">
+            Equilíbrio, estrutura e bem-estar canino. Um espaço planejado para
+            transformar a rotina do seu cão através do manejo técnico e do
+            acompanhamento consciente.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="mb-4 font-serif text-h-footer font-bold text-secondary">Fale conosco</h3>
+          <ul class="space-y-3">
+            <li>
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-3 font-montserrat text-body-base font-semibold text-white/80 hover:text-secondary"
+              >
+                <Icon name="lucide:phone" class="h-5 w-5 flex-shrink-0 text-secondary" />
+                (12) 98266-8716
+              </a>
+            </li>
+            <li>
+              <a
+                href={INSTAGRAM_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-3 font-montserrat text-body-base font-semibold text-white/80 hover:text-secondary"
+              >
+                <Icon name="lucide:instagram" class="h-5 w-5 flex-shrink-0 text-secondary" />
+                @natu_espacocanino
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex h-full flex-col">
+          <h3 class="mb-4 font-serif text-h-footer font-bold text-secondary">Onde estamos?</h3>
+          <ul class="flex flex-1 flex-col gap-3">
+            <li class="flex items-start gap-3 font-montserrat text-body-base font-semibold text-white/72">
+              <Icon name="lucide:map-pin" class="mt-0.5 h-5 w-5 flex-shrink-0 text-secondary" />
+              <span>Estrada dos Antunes, km 2<br />Taquaral, Piranguçu - MG, 37511-000</span>
+            </li>
+            <li class="flex items-start gap-3 font-montserrat text-body-base font-semibold text-white/72">
+              <Icon name="lucide:clock" class="mt-0.5 h-5 w-5 flex-shrink-0 text-secondary" />
+              <span>Segunda a sexta, das 07:30 às 17:00.</span>
+            </li>
+            <li class="mt-3 md:mt-auto md:pt-6">
+              <a
+                href={MAPS_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 font-montserrat text-body-base font-semibold uppercase text-secondary hover:text-white"
+              >
+                <Icon name="lucide:map" class="h-4 w-4" />
+                Ver no mapa
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 md:flex-row">
+      <p class="text-center font-montserrat text-body-sm text-white/55 md:text-left">
+        © {new Date().getFullYear()} Natu - Espaço Canino. Todos os direitos reservados.
+      </p>
+
+      <div class="flex flex-col items-center gap-4 md:items-end">
+        <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-body-sm text-white/60 md:justify-end">
+          <a
+            href="/politica-de-privacidade"
+            class="font-montserrat transition-colors hover:text-secondary"
+          >
+            Política de Privacidade
+          </a>
+          <a
+            href="/termos-de-uso"
+            class="font-montserrat transition-colors hover:text-secondary"
+          >
+            Termos de Uso
+          </a>
+        </div>
+
+        <a
+          href="https://adsgator.com.br/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center text-white/70 transition-opacity hover:opacity-100"
+          aria-label="Desenvolvido por Adsgator"
+        >
+          <img
+            src="/assinatura-footer-adsgator-natu.svg"
+            alt="Desenvolvido por Adsgator"
+            class="h-auto w-[211px] max-w-full"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

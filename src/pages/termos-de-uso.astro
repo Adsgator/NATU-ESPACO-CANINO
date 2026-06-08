@@ -1,0 +1,101 @@
+---
+import { Image } from "astro:assets";
+import logoNatu from "../assets/images/logo_natu.webp";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const currentYear = new Date().getFullYear();
+---
+
+<BaseLayout
+  title="Termos de Uso | Natu - Espaço Canino"
+  description="Termos de uso do site da Natu - Espaço Canino."
+  canonical="https://natuespacocanino.com.br/termos-de-uso"
+  noindex
+>
+  <main id="main-content" class="bg-background">
+    <section class="legal-shell">
+      <div class="glass-header mb-8 flex items-center justify-between gap-4 rounded-[24px] px-4 py-3 sm:px-5 sm:py-3.5 lg:rounded-[28px] lg:px-6">
+        <a href="/" aria-label="Ir para o início" class="flex items-center">
+          <Image
+            src={logoNatu}
+            alt="Natu - Espaço Canino"
+            width={160}
+            height={40}
+            class="h-7 w-auto sm:h-9"
+          />
+        </a>
+        <a
+          href="/"
+          class="inline-flex items-center justify-center rounded-full border border-white/18 bg-white/8 px-5 py-2.5 font-sans text-body-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/14 hover:text-white"
+        >
+          Voltar
+        </a>
+      </div>
+
+      <article class="legal-card">
+        <h1 class="legal-title">Termos de Uso</h1>
+        <p class="legal-subtitle">
+          Última atualização: {new Date().toLocaleDateString("pt-BR", { month: "long", year: "numeric" })}
+        </p>
+
+        <p class="legal-copy">
+          Ao acessar o site <strong class="text-text-main">natuespacocanino.com.br</strong>,
+          você concorda com os presentes Termos de Uso. Se não concordar, por favor não utilize o site.
+        </p>
+
+        <h2 class="legal-heading">1. Finalidade do site</h2>
+        <p class="legal-copy">
+          Este site tem finalidade exclusivamente informativa e de captação de leads para os
+          serviços de adestramento e hospedagem canina prestados por
+          <strong class="text-text-main"> Júlia Martins</strong>.
+        </p>
+
+        <h2 class="legal-heading">2. Informações e conteúdo</h2>
+        <p class="legal-copy">
+          O conteúdo publicado neste site tem caráter informativo sobre cuidados com cães e não
+          substitui uma consulta presencial com um adestrador profissional. Qualquer orientação
+          específica sobre comportamento animal deve ser obtida diretamente com Júlia Martins.
+        </p>
+
+        <h2 class="legal-heading">3. Propriedade intelectual</h2>
+        <p class="legal-copy">
+          Todos os textos, imagens, logotipos e demais elementos deste site são de propriedade de
+          <strong class="text-text-main"> Júlia Martins</strong> ou de terceiros que licenciaram
+          seu uso. É proibida a reprodução sem autorização prévia e por escrito.
+        </p>
+
+        <h2 class="legal-heading">4. Links externos</h2>
+        <p class="legal-copy">
+          Este site pode conter links para plataformas de terceiros, como Instagram, WhatsApp e Google.
+          Não nos responsabilizamos pelo conteúdo ou pelas práticas de privacidade dessas plataformas.
+        </p>
+
+        <h2 class="legal-heading">5. Limitação de responsabilidade</h2>
+        <p class="legal-copy">
+          Não nos responsabilizamos por danos diretos ou indiretos decorrentes do uso ou da
+          impossibilidade de uso deste site.
+        </p>
+
+        <h2 class="legal-heading">6. Alterações</h2>
+        <p class="legal-copy">
+          Estes Termos podem ser atualizados a qualquer momento. A versão vigente será sempre a
+          disponível nesta página, com a data de atualização indicada.
+        </p>
+
+        <h2 class="legal-heading">7. Contato</h2>
+        <p class="legal-copy">
+          Júlia Martins<br />
+          E-mail:
+          <a href="mailto:contato@natuespacocanino.com.br" class="text-primary hover:underline">
+            contato@natuespacocanino.com.br
+          </a><br />
+          WhatsApp: (12) 98266-8716
+        </p>
+      </article>
+
+      <p class="mt-8 text-center font-sans text-body-sm text-text-muted">
+        © {currentYear} Natu - Espaço Canino · Júlia Martins
+      </p>
+    </section>
+  </main>
+</BaseLayout>

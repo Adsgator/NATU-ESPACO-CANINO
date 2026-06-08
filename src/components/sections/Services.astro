@@ -1,0 +1,93 @@
+---
+import { Image } from "astro:assets";
+import iconeDescanso from "../../assets/images/icone_descanso.webp";
+import iconeEnergia from "../../assets/images/icone_energia.webp";
+import iconeMonitoramento from "../../assets/images/icone_monitoramento.webp";
+import iconeSocializacao from "../../assets/images/icone_socializacao.webp";
+
+const activities = [
+  {
+    title: "Relações Saudáveis entre Cães",
+    description:
+      "Os cães são integrados de forma gradual e supervisionada, respeitando porte, nível de energia, comportamento e perfil social de cada um, proporcionando interações mais equilibradas, seguras e tranquilas.",
+    image: iconeSocializacao,
+    bg: "premium-panel-dark surface-card-dark border-white/8",
+    titleColor: "text-complement",
+    textColor: "text-white/80",
+  },
+  {
+    title: "Descanso e Equilíbrio",
+    description:
+      "Os momentos de descanso fazem parte da rotina dos cães na Natu. Entre atividades e socialização, eles têm pausas em ambientes tranquilos, frescos e individuais, ajudando no relaxamento, no equilíbrio emocional e em uma convivência mais saudável ao longo do dia.",
+    image: iconeDescanso,
+    bg: "premium-panel surface-card-light",
+    titleColor: "text-primary",
+    textColor: "text-text-soft",
+  },
+  {
+    title: "Monitoramento e Manejo",
+    description:
+      "Toda a rotina dos cães é acompanhada com atenção e manejo responsável, priorizando segurança, bem-estar e interações equilibradas. Observamos o comportamento de cada cão ao longo do dia para garantir um ambiente tranquilo, seguro e positivo para todos.",
+    image: iconeMonitoramento,
+    bg: "premium-panel surface-card-light",
+    titleColor: "text-primary",
+    textColor: "text-text-soft",
+  },
+  {
+    title: "Atividades e Bem-Estar",
+    description:
+      "A rotina na Natu une brincadeiras, contato com a natureza e atividades que estimulam tanto o corpo quanto a mente dos cães. Trabalhamos gasto de energia física, enriquecimento ambiental e exercícios que ajudam no equilíbrio, foco e bem-estar no dia a dia.",
+    image: iconeEnergia,
+    bg: "premium-panel-dark surface-card-dark border-white/8",
+    titleColor: "text-complement",
+    textColor: "text-white/80",
+  },
+];
+---
+
+<section id="atividade" class="section-band bg-background section-py">
+  <div class="container-wide">
+    <div class="mx-auto mb-14 max-w-3xl text-center" data-animate>
+      <span class="label-tag justify-center">Atividades</span>
+      <h2 class="section-heading mt-4">Uma rotina pensada para o bem-estar dos cães</h2>
+    </div>
+
+    <div class="grid auto-rows-fr gap-6 lg:grid-cols-2 lg:gap-8" data-animate-group>
+      {activities.map((activity) => (
+        <article
+          class:list={[
+            activity.bg,
+            "card-hover relative h-full overflow-hidden p-5 sm:p-6 lg:p-7",
+          ]}
+          data-animate-item
+        >
+          <div class="panel-top-glow absolute inset-x-0 top-0 h-px"></div>
+
+          <div class="flex h-full flex-col items-center gap-6 text-center sm:flex-row sm:items-start sm:text-left">
+            <div class="image-frame w-24 flex-shrink-0 rounded-full border-white/10 bg-white/8 p-2 sm:w-[7.25rem]">
+              <Image
+                src={activity.image}
+                alt={activity.title}
+                class="aspect-square w-full rounded-full object-cover"
+                width={152}
+                height={152}
+              />
+            </div>
+
+            <div class="flex flex-1 flex-col gap-4">
+              <div>
+                <h3 class:list={[activity.titleColor, "font-serif text-h-card font-bold"]}>
+                  {activity.title}
+                </h3>
+                <div class="soft-divider my-4"></div>
+                <p class:list={[activity.textColor, "font-sans text-body-base leading-relaxed"]}>
+                  {activity.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

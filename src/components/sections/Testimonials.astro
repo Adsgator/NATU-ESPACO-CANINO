@@ -1,0 +1,126 @@
+---
+import Carousel from "../global/Carousel.astro";
+import ReviewCard from "../global/ReviewCard.astro";
+
+const reviews = [
+  {
+    name: "Márcia Chiaradia",
+    rating: 5,
+    text: "Agradeço todo cuidado e carinho que o Thor(adotado do abandono) recebeu no Natu Espaço Canino e em especial a Júlia, excelente profissional, obrigado por me manter informada, por cuidar com tanto amor do meu Thor, viajei tranquila. Gratidão, recomendo.",
+    initials: "M",
+    avatarClass: "avatar-primary",
+  },
+  {
+    name: "Larissa Serpa",
+    rating: 5,
+    text: "O trabalho da Ju é excelente!! Atendimento no horário, super atenciosa, cuidadosa, vejo que os animais amam estar com ela e ficam super educados!! Sentimos falta dela em sjc. Obrigada por tudo, Ju! Muito sucesso ♥",
+    initials: "L",
+    avatarClass: "avatar-secondary",
+  },
+  {
+    name: "Daphne Berto",
+    rating: 5,
+    text: "Eu confio minha cachorrinha de olhos fechado a Natu! A Júlia é uma profissional incrível, super paciente, tira todas as dúvidas... O espaço é incrível, e é uma delícia ver o quanto seu cachorro aproveita o lugar. Simplesmente 10000/10",
+    initials: "D",
+    avatarClass: "avatar-tertiary",
+  },
+  {
+    name: "Chico Lelinho",
+    rating: 5,
+    text: "Lugar perfeito para a nossa Amora passar o dia. Fora que tudo é acompanhado por uma excelente profissional que, por ter nos ajudado a dar uma qualidade de vida pra Amora (nossa cachorrinha adotada de maus tratos), passa muita confiança e podemos deixar a Amora lá com a cabeça tranquila. Recomendamos muito.",
+    initials: "C",
+    avatarClass: "avatar-secondary",
+  },
+];
+---
+
+<section id="depoimentos" class="bg-background section-py pt-0" aria-labelledby="depoimentos-heading">
+  <div class="container-wide">
+    <div class="mb-12 text-center" data-animate>
+      <span class="label-tag justify-center">Depoimentos</span>
+      <h2 id="depoimentos-heading" class="section-heading mt-4">
+        O que nossos clientes dizem
+      </h2>
+      <p class="section-copy mx-auto mt-4">
+        Histórias reais de cães e famílias que confiaram na Natu.
+      </p>
+    </div>
+
+    <div class="mb-12 flex justify-center" data-animate>
+      <a
+        href="https://maps.app.goo.gl/xkK6Rcj9qC5DPzqDA"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="premium-panel surface-card-light inline-flex flex-wrap items-center justify-center gap-4 px-5 py-5 text-center transition-all hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:px-6 sm:text-left"
+        aria-label="Ver avaliações da Natu Espaço Canino"
+      >
+        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-secondary/12 text-secondary">
+          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path
+              d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+
+        <div class="h-12 w-px bg-border" aria-hidden="true"></div>
+
+        <div class="text-center sm:text-left">
+          <span class="block font-sans text-sm font-semibold leading-tight text-text-main">Excelente</span>
+          <span class="font-sans text-xs text-text-muted">Avaliações</span>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span class="text-base tracking-[0.22em] text-secondary" aria-label="5 estrelas">★★★★★</span>
+          <span class="font-sans text-sm font-semibold text-text-main">5.0</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="relative min-h-[300px]" data-animate>
+      <div
+        class="pointer-events-none absolute bottom-0 left-0 top-0 z-20 hidden w-16 bg-gradient-to-r from-background to-transparent lg:block lg:w-24"
+        aria-hidden="true"
+      ></div>
+      <div
+        class="pointer-events-none absolute bottom-0 right-0 top-0 z-20 w-16 bg-gradient-to-l from-background to-transparent lg:w-24"
+        aria-hidden="true"
+      ></div>
+
+      <Carousel
+        id="depoimentos"
+        slidesPerView={3}
+        slidesPerViewTablet={2}
+        slidesPerViewMobile={1.2}
+        spaceBetween={24}
+        loop
+        autoplayDelay={5000}
+        class="!h-auto"
+      >
+        {reviews.map((review) => (
+          <div class="swiper-slide">
+            <ReviewCard
+              name={review.name}
+              rating={review.rating}
+              text={review.text}
+              initials={review.initials}
+              avatarClass={review.avatarClass}
+            />
+          </div>
+        ))}
+      </Carousel>
+    </div>
+
+    <p class="mt-8 text-center font-sans text-sm text-text-muted" data-animate>
+      Veja mais avaliações no
+      <a
+        href="https://maps.app.goo.gl/xkK6Rcj9qC5DPzqDA"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-primary hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+      >
+        Google Maps
+      </a>
+    </p>
+  </div>
+</section>
