@@ -7,7 +7,6 @@ import imgCaixaTransporte from "../../assets/images/img_caixa_de_transporte.webp
 import imgCaixas from "../../assets/images/img_caixas.webp";
 import imgCanil from "../../assets/images/img_canil.webp";
 import imgCanisechados from "../../assets/images/img_canis_fechados_e_abertos.webp";
-import imgLago from "../../assets/images/img_lago.webp";
 import imgObstaculos from "../../assets/images/img_obstaculos.webp";
 import imgOndeDormir from "../../assets/images/img_onde_dormir.webp";
 import imgVaranda from "../../assets/images/img_varanda.webp";
@@ -41,13 +40,6 @@ const slides = [
       "Descanso estruturado. Onde a ciência do comportamento acontece. Ensinamos o cão a relaxar em um ambiente seguro.",
     img: imgCaixas,
     alt: "Caixas de descanso individuais organizadas",
-  },
-  {
-    title: "Ambiente natural com lago",
-    caption:
-      "Estímulo sensorial. Contato direto com a natureza que promove calma e satisfação instintiva para o cão.",
-    img: imgLago,
-    alt: "Ambiente natural com lago",
   },
   {
     title: "Área de soltura 1",
@@ -92,14 +84,14 @@ const slides = [
 ];
 ---
 
-<section id="Infraestrutura" class="bg-background section-py">
+<section id="infraestrutura" class="bg-background section-py">
   <div class="container-wide">
     <div class="mb-12 text-center" data-animate>
       <span class="label-tag justify-center">Nossa estrutura</span>
       <h2 class="section-heading mt-4">Um refúgio planejado para o bem-estar canino</h2>
     </div>
 
-    <div class="section-shell px-4 py-5 sm:px-5 sm:py-6 lg:px-8 lg:py-8" data-animate>
+    <div class="section-shell overflow-hidden px-4 py-5 sm:px-5 sm:py-6 lg:px-8 lg:py-8" data-animate>
       <Carousel
         id="infra"
         slidesPerView={4}

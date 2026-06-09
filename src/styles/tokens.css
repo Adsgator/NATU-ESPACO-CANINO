@@ -68,6 +68,9 @@
 }
 
 .dark {
+  --t-primary: #4a7c5f;
+  --t-primary-dark: #2d5a3d;
+  --t-complement: #c8d4b0;
   --t-background: #141711;
   --t-background-strong: #1a1d16;
   --t-surface: #20241d;
@@ -79,6 +82,9 @@
   --t-text-main: #e6e6e6;
   --t-text-soft: #bcc4b6;
   --t-text-muted: #8a9185;
+  --t-text-dark: #4a7c5f;
+  --t-text-gray: #bcc4b6;
+  --t-wa: #25d366;
   --t-secondary: #f47a20;
   --t-secondary-hover: #ff8f3a;
   --t-accent-gold: #f47a20;

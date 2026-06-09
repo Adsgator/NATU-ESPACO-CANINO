@@ -1,10 +1,14 @@
 ---
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-import imgExclusividade01 from "../../assets/images/img_exclusividade_01.webp";
 import imgExclusividade02 from "../../assets/images/img_exclusividade_02.webp";
 import imgExclusividade03 from "../../assets/images/img_exclusividade_03.webp";
 import imgExclusividade04 from "../../assets/images/img_exclusividade_04.webp";
+import imgExclusividade05 from "../../assets/images/img_exclusividade_05.webp";
+import imgExclusividade06 from "../../assets/images/img_exclusividade_06.webp";
+import imgExclusividade07 from "../../assets/images/img_exclusividade_07.webp";
+import imgExclusividade08 from "../../assets/images/img_exclusividade_08.webp";
+import imgExclusividade09 from "../../assets/images/img_exclusividade_09.webp";
 
 const WA_NUMBER = "5512982668716";
 const WA_AVALIACAO_LINK = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Olá! Gostaria de agendar uma Avaliação Comportamental para meu cão.")}`;
@@ -22,10 +26,14 @@ const idealItems = [
 ];
 
 const carouselImages = [
-  { src: imgExclusividade01, alt: "Cão feliz na Natu" },
   { src: imgExclusividade02, alt: "Cão brincando" },
   { src: imgExclusividade03, alt: "Cão descansando" },
   { src: imgExclusividade04, alt: "Atividade canina" },
+  { src: imgExclusividade05, alt: "Atividade canina na Natu" },
+  { src: imgExclusividade06, alt: "Cão em ambiente da Natu" },
+  { src: imgExclusividade07, alt: "Cão na estrutura da Natu" },
+  { src: imgExclusividade08, alt: "Cão feliz na Natu" },
+  { src: imgExclusividade09, alt: "Ambiente exclusivo da Natu" },
 ];
 ---
 
@@ -71,19 +79,22 @@ const carouselImages = [
         <div class="relative h-[280px] overflow-hidden rounded-b-[28px] sm:h-[360px] lg:h-[520px] lg:rounded-b-none" data-animate-right>
           <div class="absolute inset-0 overflow-hidden">
             <div class="relative h-full w-full" data-carousel-container>
-              <div class="absolute inset-0 flex transition-none" data-carousel-track>
-                {[...carouselImages, ...carouselImages, ...carouselImages].map((img) => (
-                  <div class="h-full w-full flex-shrink-0">
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      class="h-full w-full object-cover"
-                      width={600}
-                      height={500}
-                    />
-                  </div>
-                ))}
-              </div>
+              {carouselImages.map((img, i) => (
+                <div
+                  class="excl-slide absolute inset-0"
+                  data-carousel-slide
+                  aria-hidden={i !== 0 ? "true" : "false"}
+                  style={i === 0 ? "opacity:1;z-index:1;" : "opacity:0;z-index:0;"}
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    class="h-full w-full object-cover"
+                    width={600}
+                    height={500}
+                  />
+                </div>
+              ))}
             </div>
           </div>
           <div class="surface-overlay-dark pointer-events-none absolute inset-0"></div>
@@ -126,51 +137,72 @@ const carouselImages = [
 </section>
 
 <script>
-  const track = document.querySelector("[data-carousel-track]") as HTMLElement;
   const container = document.querySelector("[data-carousel-container]") as HTMLElement;
 
-  if (track && container) {
-    const itemCount = track.children.length / 3;
-    const itemWidth = container.offsetWidth;
-    let currentIndex = itemCount;
+  if (container) {
+    const slides = Array.from(container.querySelectorAll<HTMLElement>("[data-carousel-slide]"));
+    const total = slides.length;
+    let current = 0;
     let autoplayInterval: number;
 
-    const updatePosition = () => {
-      track.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
-    };
-
-    const moveNext = () => {
-      currentIndex++;
-      updatePosition();
-
-      if (currentIndex >= itemCount * 2) {
-        setTimeout(() => {
-          currentIndex = itemCount;
-          track.style.transition = "none";
-          updatePosition();
-          setTimeout(() => {
-            track.style.transition = "transform 0.8s ease-in-out";
-          }, 50);
-        }, 800);
+    const goTo = (index: number) => {
+      const from = slides[current];
+      if (from) {
+        from.style.opacity = "0";
+        from.style.zIndex = "0";
+        from.setAttribute("aria-hidden", "true");
+      }
+      current = (index + total) % total;
+      const to = slides[current];
+      if (to) {
+        to.style.opacity = "1";
+        to.style.zIndex = "1";
+        to.setAttribute("aria-hidden", "false");
       }
     };
 
+    const next = () => goTo(current + 1);
+    const prev = () => goTo(current - 1);
+
     const startAutoplay = () => {
-      autoplayInterval = window.setInterval(moveNext, 4000);
+      autoplayInterval = window.setInterval(next, 4000);
     };
 
-    track.style.transition = "transform 0.8s ease-in-out";
-    updatePosition();
     startAutoplay();
-
     container.addEventListener("mouseenter", () => clearInterval(autoplayInterval));
     container.addEventListener("mouseleave", startAutoplay);
+
+    // drag / swipe
+    let dragStartX = 0;
+    let isDragging = false;
+
+    const onDragStart = (x: number) => {
+      isDragging = true;
+      dragStartX = x;
+      clearInterval(autoplayInterval);
+      container.style.cursor = "grabbing";
+    };
+
+    const onDragEnd = (x: number) => {
+      if (!isDragging) return;
+      isDragging = false;
+      container.style.cursor = "grab";
+      const delta = dragStartX - x;
+      if (Math.abs(delta) > 40) delta > 0 ? next() : prev();
+      startAutoplay();
+    };
+
+    container.style.cursor = "grab";
+    container.addEventListener("mousedown", (e) => { e.preventDefault(); onDragStart(e.clientX); });
+    window.addEventListener("mouseup", (e) => onDragEnd(e.clientX));
+    container.addEventListener("touchstart", (e) => { const t = e.touches.item(0); if (t) onDragStart(t.clientX); }, { passive: true });
+    container.addEventListener("touchend", (e) => { const t = e.changedTouches.item(0); if (t) onDragEnd(t.clientX); }, { passive: true });
   }
 </script>
 
 <style>
-  [data-carousel-track] {
-    display: flex;
-    will-change: transform;
+  .excl-slide {
+    transition: opacity 0.8s ease;
+    will-change: opacity;
   }
 </style>
