@@ -326,7 +326,8 @@
     @apply inline-flex items-center gap-2 text-label font-medium uppercase tracking-[0.26em] text-secondary;
   }
 
-  .label-tag::before {
+  .label-tag::before,
+  .label-tag::after {
     content: "";
     @apply h-px w-8 bg-secondary/50;
   }
