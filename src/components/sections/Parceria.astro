@@ -28,7 +28,7 @@ const carouselImages = [
       </div>
 
       <div class="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-        <div class="image-frame relative h-[340px] overflow-hidden rounded-[30px] sm:h-[420px] lg:h-[540px]" data-parceria-carousel>
+        <div class="image-frame relative aspect-[1000/1080] overflow-hidden rounded-[30px]" data-parceria-carousel>
           <div class="relative h-full w-full">
             {carouselImages.map((img, i) => (
               <div
@@ -41,8 +41,8 @@ const carouselImages = [
                   src={img.src}
                   alt={img.alt}
                   class="h-full w-full object-cover"
-                  width={500}
-                  height={540}
+                  width={1000}
+                  height={1080}
                 />
               </div>
             ))}
