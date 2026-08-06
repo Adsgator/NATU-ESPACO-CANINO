@@ -1,7 +1,17 @@
 ---
 import { Image } from "astro:assets";
 import imgParceriaFormulaNatural from "../../assets/images/img_parceria_formula_natural.webp";
+import imgParceriaFormulaNatural01 from "../../assets/images/img_parceria_formula_natural_01.webp";
+import imgParceriaFormulaNatural02 from "../../assets/images/img_parceria_formula_natural_02.webp";
+import imgParceriaFormulaNatural03 from "../../assets/images/img_parceria_formula_natural_03.webp";
 import logoFormulaNatural from "../../assets/images/logo_formula_natural.webp";
+
+const carouselImages = [
+  { src: imgParceriaFormulaNatural, alt: "Parceria Formula Natural" },
+  { src: imgParceriaFormulaNatural01, alt: "Ração Formula Natural" },
+  { src: imgParceriaFormulaNatural02, alt: "Produtos Formula Natural" },
+  { src: imgParceriaFormulaNatural03, alt: "Cão feliz com Formula Natural" },
+];
 ---
 
 <section id="parceria" class="bg-background section-py pt-0">
@@ -18,14 +28,25 @@ import logoFormulaNatural from "../../assets/images/logo_formula_natural.webp";
       </div>
 
       <div class="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-        <div class="image-frame rounded-[30px]">
-          <Image
-            src={imgParceriaFormulaNatural}
-            alt="Parceria Formula Natural"
-            class="h-full w-full object-cover"
-            width={500}
-            height={540}
-          />
+        <div class="image-frame relative h-[340px] overflow-hidden rounded-[30px] sm:h-[420px] lg:h-[540px]" data-parceria-carousel>
+          <div class="relative h-full w-full">
+            {carouselImages.map((img, i) => (
+              <div
+                class="parceria-slide absolute inset-0"
+                data-carousel-slide
+                aria-hidden={i !== 0 ? "true" : "false"}
+                style={i === 0 ? "opacity:1;z-index:1;" : "opacity:0;z-index:0;"}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  class="h-full w-full object-cover"
+                  width={500}
+                  height={540}
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
         <div class="flex flex-col gap-5">
@@ -66,3 +87,73 @@ import logoFormulaNatural from "../../assets/images/logo_formula_natural.webp";
     </div>
   </div>
 </section>
+
+<script>
+  const container = document.querySelector("[data-parceria-carousel]") as HTMLElement;
+
+  if (container) {
+    const slides = Array.from(container.querySelectorAll<HTMLElement>("[data-carousel-slide]"));
+    const total = slides.length;
+    let current = 0;
+    let autoplayInterval: number;
+
+    const goTo = (index: number) => {
+      const from = slides[current];
+      if (from) {
+        from.style.opacity = "0";
+        from.style.zIndex = "0";
+        from.setAttribute("aria-hidden", "true");
+      }
+      current = (index + total) % total;
+      const to = slides[current];
+      if (to) {
+        to.style.opacity = "1";
+        to.style.zIndex = "1";
+        to.setAttribute("aria-hidden", "false");
+      }
+    };
+
+    const next = () => goTo(current + 1);
+    const prev = () => goTo(current - 1);
+
+    const startAutoplay = () => {
+      autoplayInterval = window.setInterval(next, 4000);
+    };
+
+    startAutoplay();
+    container.addEventListener("mouseenter", () => clearInterval(autoplayInterval));
+    container.addEventListener("mouseleave", startAutoplay);
+
+    let dragStartX = 0;
+    let isDragging = false;
+
+    const onDragStart = (x: number) => {
+      isDragging = true;
+      dragStartX = x;
+      clearInterval(autoplayInterval);
+      container.style.cursor = "grabbing";
+    };
+
+    const onDragEnd = (x: number) => {
+      if (!isDragging) return;
+      isDragging = false;
+      container.style.cursor = "grab";
+      const delta = dragStartX - x;
+      if (Math.abs(delta) > 40) delta > 0 ? next() : prev();
+      startAutoplay();
+    };
+
+    container.style.cursor = "grab";
+    container.addEventListener("mousedown", (e) => { e.preventDefault(); onDragStart(e.clientX); });
+    window.addEventListener("mouseup", (e) => onDragEnd(e.clientX));
+    container.addEventListener("touchstart", (e) => { const t = e.touches.item(0); if (t) onDragStart(t.clientX); }, { passive: true });
+    container.addEventListener("touchend", (e) => { const t = e.changedTouches.item(0); if (t) onDragEnd(t.clientX); }, { passive: true });
+  }
+</script>
+
+<style>
+  .parceria-slide {
+    transition: opacity 0.8s ease;
+    will-change: opacity;
+  }
+</style>
